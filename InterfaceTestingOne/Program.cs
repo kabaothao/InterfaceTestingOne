@@ -5,7 +5,7 @@ using System;
 
 namespace InterfaceTestingOne // Note: actual namespace depends on the project name.
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -13,24 +13,53 @@ namespace InterfaceTestingOne // Note: actual namespace depends on the project n
             Rabbit rabbit = new Rabbit(); //create a rabbit object
             Hawk hawk = new Hawk(); //create a hawk object
             Fish fish  = new Fish();
+            Bear bear = new Bear();
+            Chicken chicken = new Chicken();
+            Bat bat = new Bat();
+            Whale whale = new Whale();
 
             //rabbit.Flee();
             //hawk.Hunt();
-            fish.Flee();
-            fish.Hunt();
+            //fish.Flee();
+            //fish.Hunt();
+            //fish.Sleep();
+            //bear.Sleep();
+            //chicken.sleep();
+
+            //bat.Flee();
+            //bat.Hunt();
+            //bat.Sleep();
+            whale.Swim();
+            fish.Swim();
+            bat.Swim(); 
 
             Console.ReadKey();
         }
 
+
+
+
+
         interface IPrey
         {
             void Flee();
+            void Swim();
         }
 
         interface IPredator
         {
             void Hunt();
         }
+
+        interface IHibernate
+        {
+            void Sleep();
+        }
+
+        
+
+
+
 
         class Rabbit
         {
@@ -48,7 +77,7 @@ namespace InterfaceTestingOne // Note: actual namespace depends on the project n
             }
         }
 
-        class Fish : IPrey, IPredator
+        class Fish : IPrey, IPredator, IHibernate
         {
             public void Flee()
             {
@@ -57,7 +86,67 @@ namespace InterfaceTestingOne // Note: actual namespace depends on the project n
 
             public void Hunt()
             {
-                Console.WriteLine("The fish is searching for smaller fish. ");
+                Console.WriteLine("The fish is searching for smaller fish.");
+            }
+
+            public void Sleep()
+            {
+                Console.WriteLine("The fish is sleeping.");
+            }
+
+            public void Swim()
+            {
+                Console.WriteLine("The fish is swimming.");
+            }
+        }
+
+        class Bear
+        {
+            public void Sleep()
+            {
+                Console.WriteLine("The bear is sleeping.");
+            }
+        }
+
+
+        class Chicken 
+        {   
+
+            public void sleep()
+            {
+                Console.WriteLine("The chicken is sleeping.");
+            }
+
+        }
+
+        class Bat : IPrey, IPredator, IHibernate
+        {
+            public void Flee()
+            {
+                Console.WriteLine("The bat fly away.");
+            }
+
+            public void Hunt()
+            {
+                Console.WriteLine("The bat is searching for smaller insects.");
+            }
+
+            public void Sleep()
+            {
+                Console.WriteLine("The bat is sleeping.");
+            }
+
+            public void Swim()
+            {
+                Console.WriteLine("The bat is swimming.");
+            }
+        }
+
+        class Whale
+        {
+            public void Swim()
+            {
+                Console.WriteLine("The whale is swimming to prey for smaller fishes.");
             }
         }
 
