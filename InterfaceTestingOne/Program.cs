@@ -42,7 +42,7 @@ namespace InterfaceTestingOne // Note: actual namespace depends on the project n
 
         interface IPrey
         {
-            void Flee();
+            void Flee();//if you add methods then in the class you'll always have to call those methods or else the class will break/or be mad.
             void Swim();
         }
 
