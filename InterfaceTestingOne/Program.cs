@@ -10,11 +10,14 @@ namespace InterfaceTestingOne // Note: actual namespace depends on the project n
         static void Main(string[] args)
         {
 
-            Rabbit rabbit = new Rabbit(); //create an object
-            Hawk hawk = new Hawk();
+            Rabbit rabbit = new Rabbit(); //create a rabbit object
+            Hawk hawk = new Hawk(); //create a hawk object
+            Fish fish  = new Fish();
 
-            rabbit.Flee();
-            hawk.Hunt();
+            //rabbit.Flee();
+            //hawk.Hunt();
+            fish.Flee();
+            fish.Hunt();
 
             Console.ReadKey();
         }
@@ -45,9 +48,17 @@ namespace InterfaceTestingOne // Note: actual namespace depends on the project n
             }
         }
 
-        class Fish
+        class Fish : IPrey, IPredator
         {
-            public void
+            public void Flee()
+            {
+                Console.WriteLine("The fish swim away");
+            }
+
+            public void Hunt()
+            {
+                Console.WriteLine("The fish is searching for smaller fish. ");
+            }
         }
 
 
@@ -65,6 +76,6 @@ namespace InterfaceTestingOne // Note: actual namespace depends on the project n
 An interface declares" what a class should have"
 An inheriting class defines "how it should do it?"
 
-Benefit = scurity + mutliple inheritance +"plug-and-play"
+Benefit = security + mutliple inheritance +"plug-and-play"
     
  */
